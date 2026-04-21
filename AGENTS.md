@@ -23,6 +23,18 @@
 - The root governance files are `AGENTS.md`, `README.md`, `.editorconfig`, and `.gitignore`.
 - GitHub policy lives under `.github/`, including the pull request template and the repository policy workflow.
 - Do not add speculative framework scaffolding. Introduce app directories only in the pull request that actually adopts the chosen stack.
+- The application shell now uses `Astro 6` with `React 19` islands, `Tailwind CSS 4`, and `wrangler.jsonc`.
+- The primary site entry is `src/pages/index.astro`.
+- Interactive graph code should live under `src/components/interactive/`.
+- Structured mock or authored content should live under `src/content/`.
+- Add `worker/` only when a real runtime endpoint is needed. Static-first deployments should stay on Cloudflare Workers Static Assets without a Worker `main`.
+
+## Runtime Workflow
+
+- Default package manager is `npm`.
+- Preferred local commands are `npm install`, `npm run dev`, `npm run build`, and `npm run typecheck`.
+- Deployments should target Cloudflare Workers Static Assets through `wrangler.jsonc`, not Cloudflare Pages, unless a human explicitly approves a change.
+- Keep primary navigation state hash-driven inside the single-page explorer unless a human explicitly asks for additional routed pages.
 
 ## Check Every Time
 
