@@ -1,0 +1,71 @@
+name: Repo Policy
+
+on:
+  pull_request:
+    branches:
+      - main
+      - development
+  push:
+    branches:
+      - main
+      - development
+      - "feat/**"
+      - "epic/**"
+
+permissions:
+  contents: read
+
+jobs:
+  policy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify required repository files
+        shell: bash
+        run: |
+          set -euo pipefail
+          required_files=(
+            "AGENTS.md"
+            "README.md"
+            ".editorconfig"
+            ".gitignore"
+            ".github/pull_request_template.md"
+            ".github/workflows/policy.yml"
+          )
+
+          for file in "${required_files[@]}"; do
+            if [[ ! -f "$file" ]]; then
+              echo "Missing required file: $file"
+              exit 1
+            fi
+          done
+
+      - name: Enforce gitflow pull request paths
+        if: github.event_name == 'pull_request'
+        shell: bash
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          set -euo pipefail
+
+          case "$BASE_REF" in
+            development)
+              if [[ ! "$HEAD_REF" =~ ^(feat|epic)/.+$ ]]; then
+                echo "Pull requests into development must come from feat/* or epic/* branches."
+                exit 1
+              fi
+              ;;
+            main)
+              if [[ "$HEAD_REF" != "development" ]]; then
+                echo "Only development may open release pull requests into main."
+                exit 1
+              fi
+              ;;
+            *)
+              echo "Unexpected protected base branch: $BASE_REF"
+              exit 1
+              ;;
+          esac

@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Editors
+.idea/
+.vscode/
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+coverage/
+
+# Common frontend caches
+.astro/
+.next/
+.nuxt/
+.parcel-cache/
+.svelte-kit/
+.vercel/
+
+# Local environment files
+.env
+.env.local
+.env.*.local
