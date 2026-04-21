@@ -18,8 +18,11 @@ coverage/
 .parcel-cache/
 .svelte-kit/
 .vercel/
+.wrangler/
 
 # Local environment files
 .env
 .env.local
 .env.*.local
+.dev.vars
+.dev.vars.*

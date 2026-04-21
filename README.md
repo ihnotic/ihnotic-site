@@ -2,9 +2,27 @@
 
 Personal website repository for John Ihnotic.
 
-## Status
+## Current Direction
 
-This repository is intentionally starting with a governance-first skeleton. The site stack, deployment target, and application layout should be introduced in a normal issue-driven pull request after the workflow rules are in place.
+The site is being built as a single-page Knowledge Graph Explorer rather than a linear marketing site or blog. The current mockup uses a topology-style interface that is meant to feel closer to a switch fabric or circuit board than a conventional website layout.
+
+## Stack
+
+- `Astro 6`
+- `React 19` islands
+- `Tailwind CSS 4`
+- `TypeScript`
+- `Wrangler 4`
+- Cloudflare Workers Static Assets deployment
+
+## Local Development
+
+```sh
+npm install
+npm run dev
+npm run build
+npm run typecheck
+```
 
 ## Branch Model
 
@@ -14,20 +32,24 @@ This repository is intentionally starting with a governance-first skeleton. The 
 - Normal pull requests merge into `development`.
 - Releases promote `development` into `main`.
 
-## Initial Structure
+## Project Shape
 
 ```text
 .
-|-- .editorconfig
-|-- .gitignore
 |-- AGENTS.md
-|-- README.md
-`-- .github/
-    |-- pull_request_template.md
-    `-- workflows/
-        `-- policy.yml
+|-- astro.config.mjs
+|-- package.json
+|-- plan.md
+|-- wrangler.jsonc
+`-- src/
+    |-- components/
+    |   `-- interactive/
+    |-- content/
+    |-- layouts/
+    |-- pages/
+    `-- styles/
 ```
 
-## Next Step
+## Deployment
 
-Pick the site stack in an issue, create a `feat/*` branch from `development`, and add the app structure in that pull request.
+The site is intended to deploy on Cloudflare Workers Static Assets via `wrangler.jsonc`. Add a `worker/` entrypoint only when an actual runtime endpoint is needed.
