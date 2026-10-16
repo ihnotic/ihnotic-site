@@ -9,6 +9,7 @@
 - Never commit directly to `main` or `development`.
 - Open normal implementation pull requests from the working branch into `development`.
 - Promote releases only through `development` to `main`.
+- Squash normal feature pull requests. Use merge commits for release promotions and history-reconciliation pull requests so the long-lived branches retain shared ancestry; do not squash `development` into `main`.
 - Tag releases as `release-YYYY-MM-DD`, adding `-2`, `-3`, and so on for multiple releases on the same date.
 
 ## Delivery Rules
