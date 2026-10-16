@@ -9,13 +9,11 @@
 | Terms of Service | https://ihnotic.com/eink-board/terms/ |
 | Authorized domain | `ihnotic.com` |
 
-Support contact: ihnotic@gmail.com.
-
 The root site is a placeholder. Use the app-specific homepage above for Google branding: it identifies eInk Board, explains its functionality and read-only Calendar access, and links to its Privacy Policy. An empty page would not meet Google's published homepage requirements.
 
 ## Integration
 
-The three HTML files and shared CSS are reused byte-for-byte from commit `5fb5e49f6e50f55ae40fb086bd675044b3b13805` in PR #11. They have no dependency on Astro, React, Tailwind, or the explorer in PR #4. The minimal site branch starts from `development` and adds only the static assets and deployment tooling.
+The three HTML files and shared CSS originated in commit `5fb5e49f6e50f55ae40fb086bd675044b3b13805` in PR #11. Public contact details were subsequently removed in issue #15. The pages have no dependency on Astro, React, Tailwind, or the explorer in PR #4. The minimal site branch starts from `development` and adds only the static assets and deployment tooling.
 
 PR #11 currently includes PR #4 in its ancestry. Merge the minimal-site PR through `development` and then a `development` → `main` release PR. After the minimal site lands, close #11 as superseded rather than merging its explorer ancestry. Leave #4 open for the future site, and reconcile its package files, README, AGENTS.md, and Wrangler configuration before integrating it. Preserve these three routes during that work.
 
