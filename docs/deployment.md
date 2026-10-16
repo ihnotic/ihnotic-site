@@ -15,6 +15,8 @@ Prepared October 16, 2026. This change prepares the site; it does not merge, dep
 
 Public DNS on October 16 shows apex and `www` A records pointing to `34.219.146.73`, with authoritative TTL 300. Normal HTTPS verification at the apex fails with curl error 60 (self-signed certificate).
 
+The Verisign RDAP registry identifies **Amazon Registrar, Inc.** as the registrar and reports unsigned delegation. The nameserver change therefore belongs in Route 53's **Registered domains → ihnotic.com → Details → Actions → Edit name servers**, after verifying access to the owning AWS account. Do not confuse this with editing the hosted zone's NS record.
+
 Current authoritative nameservers:
 
 ```text
@@ -97,5 +99,7 @@ If the DNS migration itself is faulty, restore the four saved Route 53 nameserve
 
 - [Workers Custom Domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/)
 - [Cloudflare full-zone setup and DNSSEC migration](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/)
+- [Amazon Route 53 registrar nameserver changes](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-name-servers-glue-records.html)
+- [Verisign RDAP record for ihnotic.com](https://rdap.verisign.com/com/v1/domain/ihnotic.com)
 - [Workers static asset HTML routing](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/)
 - [Google OAuth Branding](https://support.google.com/cloud/answer/15549049?hl=en-uk)
