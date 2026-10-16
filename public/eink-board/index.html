@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="eInk Board is a personal calendar display that runs on your Mac and shows your day on an e-paper screen using read-only Google Calendar access.">
+  <meta name="theme-color" content="#f4f1e8">
+  <link rel="canonical" href="https://ihnotic.com/eink-board/">
+  <link rel="stylesheet" href="/eink-board/styles.css">
+  <title>eInk Board · ihnotic</title>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-head">
+    <div class="wrap">
+      <a class="brand" href="/">ihnotic<span>.</span></a>
+      <nav aria-label="eInk Board">
+        <a href="/eink-board/" aria-current="page">The app</a>
+        <a href="/eink-board/privacy/">Privacy</a>
+        <a href="/eink-board/terms/">Terms</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="app-title">
+      <div>
+        <p class="eyebrow">Personal tools / e-paper</p>
+        <h1 id="app-title">eInk Board</h1>
+        <p class="tagline">Your day, at a glance.</p>
+        <p class="lede">A quiet calendar display for your home. eInk Board runs on your Mac and turns a selected Google Calendar into a readable agenda on a reTerminal E1001 e-paper screen.</p>
+        <ul class="facts" aria-label="App essentials">
+          <li>Runs locally</li><li>Read-only Calendar access</li><li>You choose what appears</li>
+        </ul>
+      </div>
+      <figure class="screen-figure">
+        <div class="screen" role="img" aria-label="Illustrative e-paper agenda with a morning walk, dinner at home, and an upcoming picnic. All events are fictional.">
+          <div class="glass" aria-hidden="true">
+            <div class="screen-top"><strong>Today</strong><span>AT A GLANCE</span></div>
+            <div class="screen-row"><time>09:00</time><div><strong>Morning walk</strong><small>Start the day outside</small></div></div>
+            <div class="screen-row"><time>18:30</time><div><strong>Dinner at home</strong><small>A little time together</small></div></div>
+            <div class="screen-upcoming"><span>MARKED UPCOMING</span>Weekend picnic · In 3 days</div>
+          </div>
+        </div>
+        <figcaption>Illustration with fictional events. No calendar is connected here.</figcaption>
+      </figure>
+    </section>
+    <section class="section" aria-labelledby="how-title">
+      <p class="eyebrow">From calendar to kitchen counter</p>
+      <h2 id="how-title">Set it up locally. Read it at a glance.</h2>
+      <div class="steps">
+        <div><p class="step-number">01 / CONNECT</p><h3>Choose your calendar</h3><p>Authorize Google Calendar from the local controller on your Mac. Select the calendar you want the board to show.</p></div>
+        <div><p class="step-number">02 / SEE TODAY</p><h3>Keep the whole day in view</h3><p>Today includes all-day, timed, and completed events. Longer agendas continue across pages you can browse on the board.</p></div>
+        <div><p class="step-number">03 / LOOK AHEAD</p><h3>Mark what matters next</h3><p>Choose specific future events for Upcoming. These marks stay in the local app and do not change your Google Calendar.</p></div>
+      </div>
+    </section>
+    <section class="section local-note" aria-labelledby="local-title">
+      <div><p class="eyebrow">A local display, by design</p><h2 id="local-title">Your Mac does the work.<br>Your board shows the agenda.</h2></div>
+      <div>
+        <p>The local server retrieves calendar events and renders the screen. It sends the agenda image to your display over an encrypted connection with a device access token on your local network. Google credentials stay on the Mac.</p>
+        <p>The app uses read-only permissions. Google's event permission covers calendars you can access; eInk Board fetches events only from the calendar you select. <a href="/eink-board/privacy/">Read how access, storage, and deletion work.</a></p>
+        <p class="small">This site describes a personal household app maintained by John Ihnotic. Setup and account connection happen in the local controller, not on this website. The Mac must be running and reachable for new screen updates.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap"><p>eInk Board · A personal project by John Ihnotic</p><div class="footer-links"><a href="/eink-board/privacy/">Privacy Policy</a><a href="/eink-board/terms/">Terms of Use</a><a href="mailto:ihnotic@gmail.com">Contact</a></div></div></footer>
+</body>
+</html>
