@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How eInk Board accesses Google Calendar, stores data locally, displays your agenda, and handles disconnecting and deletion.">
+  <meta name="theme-color" content="#f4f1e8">
+  <link rel="canonical" href="https://ihnotic.com/eink-board/privacy/">
+  <link rel="stylesheet" href="/eink-board/styles.css">
+  <title>Privacy Policy · eInk Board</title>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-head"><div class="wrap"><a class="brand" href="/">ihnotic<span>.</span></a><nav aria-label="eInk Board"><a href="/eink-board/">The app</a><a href="/eink-board/privacy/" aria-current="page">Privacy</a><a href="/eink-board/terms/">Terms</a></nav></div></header>
+  <main id="main" class="wrap document">
+    <p class="eyebrow">eInk Board / Your information</p>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated October 16, 2026</p>
+    <p class="lede">eInk Board is a personal household calendar display maintained by John Ihnotic. Its calendar integration runs on your Mac. This policy describes what it reads, what stays on your devices, and what happens when you disconnect.</p>
+    <div class="notice"><p>Google access is read-only. Calendar data is used to show your agenda and the future events you explicitly mark. It is not sold, used for advertising, sent to AI services, or published on this website.</p></div>
+    <nav class="contents" aria-label="On this page"><a href="#access">Google access</a><a href="#storage">Local storage</a><a href="#retention">Retention &amp; deletion</a><a href="#sharing">Sharing</a><a href="#contact">Contact</a></nav>
+    <section id="access">
+      <h2>What the app accesses</h2>
+      <p>You authorize the app through Google, then choose a calendar in the local controller. The app requests two permissions:</p>
+      <ul>
+        <li><strong>Read your calendar list</strong> (<code>calendar.calendarlist.readonly</code>) to show calendars available to your account and let you select one.</li>
+        <li><strong>Read calendar events</strong> (<code>calendar.events.readonly</code>) to build Today and Upcoming. This Google permission permits reading events from all calendars you can access. The app's implementation retrieves events only from your selected calendar.</li>
+      </ul>
+      <p>The app reads calendar names, identifiers, timezones, and access roles for selection. It retains the account identifier and selected calendar metadata. For the agenda, it retains event titles, start and end dates or times, locations, and identifiers needed to handle recurring events and cancellations.</p>
+      <p>Google's event responses can contain other event fields. The local server processes those responses to build the agenda; it does not retain event descriptions or attendee lists in its normalized event cache. The app never creates, edits, or deletes Google Calendar events. Upcoming marks exist only in the local controller.</p>
+      <p>Google documents these <a href="https://developers.google.com/workspace/calendar/api/auth">Calendar permissions</a>. Google data is used only for the visible calendar features described here, subject to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
+    </section>
+    <section id="storage">
+      <h2>Where information is stored</h2>
+      <p>The local server stores OAuth client configuration, access and refresh tokens, the selected calendar, a recent event snapshot, and Upcoming selections in local files on your Mac. The application restricts access to its private runtime files using operating-system file permissions. These files are not encrypted by the app; disk encryption and access to the Mac are controlled by its owner.</p>
+      <p>The event cache covers today and the configured future window. It lets the app retain a last-good schedule during a temporary failure and recover after a restart. Upcoming selections store event occurrence identifiers, not a separate copy of event titles.</p>
+      <p>The board receives a rendered agenda image over encrypted local-network TLS with a device access token. It does not receive Google tokens or OAuth client credentials. The current display firmware does not verify the server certificate, so use it only on a trusted local network. People who can see the physical screen can read the agenda, and people with access to your local controller or Mac may be able to view stored calendar data.</p>
+    </section>
+    <section id="retention">
+      <h2>Retention, disconnecting, and deletion</h2>
+      <p>Local data has no fixed automatic expiration period. Successful syncs replace the event snapshot. Failed syncs retain the last complete snapshot. On its next update, the display marks the saved agenda stale; aging data is also marked stale after the freshness threshold. Upcoming marks remain until removed or invalidated by a connection or calendar change. Marks for events outside the current window may remain stored without being displayed.</p>
+      <p><strong>Disconnect</strong> clears the app's locally stored access and refresh tokens, account identifier, and selected calendar. It stops further authorized calendar retrieval. It does not revoke Google's grant remotely, delete your OAuth client configuration, or guarantee removal of old event-cache files, backups, or the image already on the display. Previous-calendar data is no longer used for the active agenda.</p>
+      <ol>
+        <li>Use Disconnect in the local controller to clear the local authorization.</li>
+        <li>Remove eInk Board's access in your <a href="https://myaccount.google.com/connections">Google Account connections</a> if you also want to revoke the grant at Google.</li>
+        <li>To remove retained local data, stop the local server and delete its Calendar runtime data, including the event snapshot and Upcoming selections. Remove any separately configured OAuth client file and copies or backups you control.</li>
+        <li>Update or clear the physical display separately. E-paper can retain its last image while disconnected or powered off.</li>
+      </ol>
+      <p>If you need help finding or removing local data, contact the maintainer below. The maintainer cannot remotely delete files or backups on your Mac.</p>
+    </section>
+    <section id="sharing">
+      <h2>Where data goes</h2>
+      <p>Your Mac communicates with Google for authorization, token renewal, calendar selection, and event retrieval. The local controller and board use the resulting agenda. The calendar integration does not send your calendar data to the maintainer, this website, analytics providers, advertising services, or AI systems. It does not sell data or publish a calendar feed.</p>
+      <p>These public information pages contain no analytics scripts or tracking cookies and do not connect to your calendar. The website's hosting provider may process normal request information, such as IP addresses and browser details, to deliver and protect the site. That website traffic is separate from the local calendar integration.</p>
+    </section>
+    <section id="contact">
+      <h2>Questions or changes</h2>
+      <p>Contact John Ihnotic at <a href="mailto:ihnotic@gmail.com">ihnotic@gmail.com</a> about privacy or local-data removal. Please do not email tokens, credentials, or private event details.</p>
+      <p>Changes to this policy will appear here with an updated date. Any new use of Google data beyond the purposes described here will be disclosed before it is introduced, with additional consent where required.</p>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap"><p>eInk Board · A personal project by John Ihnotic</p><div class="footer-links"><a href="/eink-board/">The app</a><a href="/eink-board/terms/">Terms of Use</a><a href="mailto:ihnotic@gmail.com">Contact</a></div></div></footer>
+</body>
+</html>
