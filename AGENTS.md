@@ -24,6 +24,16 @@
 - GitHub policy lives under `.github/`, including the pull request template and the repository policy workflow.
 - Do not add speculative framework scaffolding. Introduce app directories only in the pull request that actually adopts the chosen stack.
 
+## Runtime Workflow
+
+- The initial production site is plain HTML/CSS in `public/`, deployed directly with Cloudflare Workers Static Assets through `wrangler.jsonc`.
+- Use Node.js 22.12 or newer and npm. Run `npm ci`, `npm run dev`, and `npm run deploy:dry-run`.
+- There is no application build step or Worker `main`. Only `public/` is published; keep credentials, internal documents, and calendar data outside it.
+- The root is a placeholder. Preserve the standalone `/eink-board/`, `/eink-board/privacy/`, and `/eink-board/terms/` URLs when integrating the future explorer.
+- PR #4 contains the separate Astro/React/Tailwind explorer prototype. It is not required to publish these static information pages. Reconcile its tooling and asset directory when integrating it.
+- Live deployment uses `npx wrangler deploy` from an approved release on `main`, after DNS prerequisites in `docs/deployment.md` are satisfied. A dry run does not deploy or verify DNS/TLS.
+- Add application runtime code only when a real endpoint is needed. Do not switch to Cloudflare Pages.
+
 ## Check Every Time
 
 - Branch starts from the current `development` tip.
